@@ -4,7 +4,8 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RemoteCustomer extends UnicastRemoteObject implements RemoteCustomerInf {
+public class RemoteCustomer extends UnicastRemoteObject 
+								implements RemoteCustomerInf {
 	private String cardNumber;
 	private String name;
 
@@ -26,22 +27,21 @@ public class RemoteCustomer extends UnicastRemoteObject implements RemoteCustome
 		System.out.println("cust data saved. " + this.name + ", " + cardNumber);
 	}
 
-	/*
+	/**
 	 * %java_home%\bin\rmic structural.proxy.RemoteCustomer
 	 * rmiregistry
 	 * java RemoteCustomer
 	 * java ClientAccountManager
-	 * 
 	 */
 	public static void main(String[] args) throws Exception {
 		String port = "1099";
 		String host = "localhost";
 
 		// Create an instance of the server
-		RemoteCustomer facade = new RemoteCustomer();
+		RemoteCustomer remoteCust = new RemoteCustomer();
 
 		// Bind it with the RMI Registry
-		Naming.bind("//" + host + ":" + port + "/RemoteCustomer", facade);
+		Naming.bind("//" + host + ":" + port + "/RemoteCustomer", remoteCust);
 
 		System.out.println("Service Bound...");
 

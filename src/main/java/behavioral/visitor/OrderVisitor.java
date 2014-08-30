@@ -1,7 +1,6 @@
 package behavioral.visitor;
 
 public class OrderVisitor implements VisitorInterface {
-
 	private double totAmount;
 	
 	public OrderVisitor() {
@@ -9,7 +8,7 @@ public class OrderVisitor implements VisitorInterface {
 	}
 	
 	//going to visit all the orders in the collection
-	public void visit(OrderInterface o) {
+	@Override public void visit(OrderInterface o) {
 		totAmount += o.getAmount();
 		System.out.println(o.toString());
 	}

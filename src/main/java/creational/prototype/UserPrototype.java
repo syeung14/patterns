@@ -8,21 +8,16 @@ public class UserPrototype implements Cloneable {
 	private String password;
 	private Vector<String> otherData = new Vector<String>();
 
-	public void setUserName(String uName) {
-		userName = uName;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setPassword(String pwd) {
-		password = pwd;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setOtherData(Vector<String> data) {
-		this.otherData = data;
-	}
+	//getter and setters
+	public void setUserName(String uName) {userName = uName;}
+	public String getUserName() {return userName;}
+	public void setPassword(String pwd) {password = pwd;}
+	public String getPassword() {return password;}
+	public void setOtherData(Vector<String> data) {this.otherData = data;}
+	
+	/**
+	 * making clone
+	 */
 	public Object clone() {
 		//Deep copy
 		UserPrototype account=new UserPrototype();
